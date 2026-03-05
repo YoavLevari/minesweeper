@@ -1,3 +1,3 @@
-# tic-tac-toe
+# minesweeper
 my version for minesweeper
 

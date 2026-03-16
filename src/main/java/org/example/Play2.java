@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class Play2 {
   public Play2() {
     Scanner scan = new Scanner(System.in);
-    System.out.println("Welcome to line sleeper");
-    System.out.println("due to copyright this is different than mine sweeper");
     System.out.println("how large do you want the board to be(enter the requested board length)");
     String side = scan.next();
     System.out.println("ok interesting, now enter the requested board hight");

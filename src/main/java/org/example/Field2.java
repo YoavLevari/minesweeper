@@ -177,26 +177,4 @@ public class Field2 {
         }
     }
 
-    public static void main(String[] args) {
-
-        Field2 field = new Field2(10,10,10);
-
-        field.printField();
-
-        System.out.println("here");
-        field.createField(new Position(0,0));
-
-        field.printField();
-
-        System.out.println("tests:");
-
-        field.chooseMine(0, 0);
-        field.chooseMine(1, 1);
-        field.chooseMine(5, 5);
-        field.chooseMine(9, 9);
-
-        field.printField();
-        field.printMines();
-    }
-
 }

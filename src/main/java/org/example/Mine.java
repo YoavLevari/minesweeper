@@ -2,7 +2,7 @@ package org.example;
 
 public class Mine {
 
-    private boolean explosion;
+    private final boolean explosion;
 
     int number;
 

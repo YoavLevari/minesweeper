@@ -49,15 +49,12 @@ public class Play2 {
     if (field.minesGuessed == validMines){
       System.out.println("You won! Congrats");
     }
-    else{System.out.println("You lost! You LOOSER10!, u suck, L + ratio");}
+    else{System.out.println("You hit a mine, Better luck next Time");}
 
     System.out.println("this is the field (X are the mines)");
     field.printMines();
 
-    System.out.println("Thank you for playing line sleeper");
+    System.out.println("Thank you for playing");
   }
 
-  public static void main(String[] args) {
-    new Play2();
-  }
 }

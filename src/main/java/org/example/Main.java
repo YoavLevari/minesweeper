@@ -1,17 +1,14 @@
 package org.example;
 
-import java.util.Arrays;
-
-import static java.lang.Math.random;
-
+/**
+ * Entry point for launching the Minesweeper game.
+ * <p>
+ * This class simply creates a new {@link Play2} instance,
+ * which starts the full console-based game loop.
+ * </p>
+ */
 public class Main {
     public static void main(String[] args) {
-
-        int[][] matrix = new int[3][3];
-        System.out.println("Hello, World!");
-        int randomNum = (int) (Math.random() * 10);
-        int test = 12;
-        matrix[0][0] = randomNum;
-        System.out.println(randomNum);
+        new Play2();
     }
 }

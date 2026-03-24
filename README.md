@@ -1,67 +1,102 @@
-# 🧨 Minesweeper — Java Console Game
+# 🟦 Minesweeper — Java Console Edition
 
-A fully interactive **Minesweeper** game implemented in Java.  
-The game runs in the terminal and allows the player to choose the board size, number of mines, and reveal cells by entering coordinates. The program handles mine placement, neighbor counting, win/loss detection, and prints the board after every move.
+A fully playable Minesweeper game implemented in Java.  
+This project includes both the **first attempt** at the game logic (`Field`) and the **final, improved implementation** (`Field2`) used by the main game loop (`Play2`). The game runs entirely in the console and allows players to choose board size, number of mines, and interact with the grid using typed coordinates.
 
 ---
 
-## 📘 How the Game Works
+## 🎮 Gameplay Overview
 
 When the program starts, the player is prompted to enter:
 
-1. **Board width**  
-2. **Board height**  
-3. **Number of mines**
+- The board width
+- The board height
+- The number of mines
 
-After receiving this information, the game:
+The first click is always guaranteed to be safe.  
+After that, the player continues selecting cells until:
 
-- Creates a hidden minefield  
-- Ensures the **first clicked cell is always safe**  
-- Calculates how many mines surround each cell  
-- Prints the board after every move  
-- Ends when:
-  - The player clicks a mine (**loss**)  
-  - All safe cells are revealed (**win**)  
+- All safe cells are revealed → **Victory**
+- A mine is clicked → **Game Over**
 
-### 🕹️ Gameplay Flow
+At the end of the game, the full mine layout is displayed.
 
-1. The board is printed with all cells hidden (`X`).
-2. The player enters a **vertical index** and **horizontal index**.
-3. The game reveals the selected cell:
-   - If it contains a mine → **Game Over**
-   - If it is safe → displays the number of adjacent mines
-4. The game continues until the player wins or loses.
-5. At the end, the full minefield is printed so the player can see all mine locations.
+---
+# 🔮 Future Improvements
+
+This project is designed with expansion in mind. Below are the planned enhancements that will significantly improve gameplay, usability, and visual clarity.
 
 ---
 
-## 🧩 Code Overview
+## 🎨 1. Graphical User Interface (GUI)
 
-The project is organized into four main classes:
+A full visual Minesweeper experience using **Java Swing** or **JavaFX**, including:
 
-src/main/java/org/example/
-├── Play2.java
-├── Field2.java
-├── Mine.java
-└── Position.java
+- Clickable buttons for each cell
+- Color‑coded numbers
+- Real‑time updates
+- A cleaner, more intuitive layout
+- Visual flags and animations
 
-### **`Play2.java` — Game Controller**
+This will transform the game from a console tool into a polished desktop application.
 
-This class manages:
+---
 
-- User input (`Scanner`)
-- Asking for board size and mine count
-- Creating the `Field2` object
-- Running the main game loop
-- Printing the board after each move
-- Detecting win/loss conditions
+## 🟦 2. Flood‑Fill Reveal for Zero Cells
 
-**Example of the main loop:**
+Classic Minesweeper behavior:
 
-```java
-while (!gameOver && field.minesGuessed != validMines) {
-    int verticalIndex = scan.nextInt();
-    int horizontalIndex = scan.nextInt();
-    gameOver = field.chooseMine(verticalIndex, horizontalIndex);
-    field.printField();
-}
+- When a cell with **0 neighboring mines** is clicked, automatically reveal all surrounding cells
+- Recursively expand until all empty regions are uncovered
+- Greatly improves playability and reduces repetitive clicking
+
+This is one of the most important upgrades for a smooth user experience.
+
+---
+
+## 🚩 3. Ability to Flag Mines
+
+Add support for:
+
+- Marking suspected mines with a flag
+- Preventing flagged cells from being clicked
+- Tracking remaining mines
+- Displaying flags visually in the GUI version
+
+This brings the game closer to the traditional Minesweeper ruleset.
+
+---
+
+## ⏱️ 4. Timer and Score Tracking
+
+Optional enhancements:
+
+- Track how long each game takes
+- Store best times
+- Add difficulty presets (Beginner, Intermediate, Expert)
+
+---
+
+## 🧠 Project Structure
+
+    src/
+    └── main/java/org/example/
+    ├── Main.java        # Entry point
+    ├── Play2.java       # Console game loop
+    ├── Field2.java      # Final game logic
+    ├── Mine.java        # Represents a single cell
+    ├── Position.java    # Row/column coordinate
+    ├── Play.java        # First attempt (kept for reference)
+    └── Field.java       # First attempt (kept for reference)
+
+
+---
+
+## 🚀 Running the Program
+
+### Using Maven
+
+From the project root:
+
+```bash
+mvn clean compile exec:java

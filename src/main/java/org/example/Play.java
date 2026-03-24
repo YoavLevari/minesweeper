@@ -2,6 +2,21 @@ package org.example;
 
 import java.util.Scanner;
 
+/**
+ * Represents the original, first-generation console interface for the Minesweeper game.
+ * <p>
+ * This {@code Play} class was created during the initial attempt at building the
+ * user interaction layer. It contains the early structure for prompting the user,
+ * reading moves, and driving the game loop, but it lacks the refined logic,
+ * safety checks, and improved flow found in the updated implementation.
+ * </p>
+ *
+ * <p><strong>Note:</strong> This class has been replaced by the newer and more
+ * complete {@link Play2} version, which provides a cleaner setup process,
+ * improved input handling, and a more robust connection to the finalized
+ * {@link Field2} game model. The original {@code Play} class remains in the
+ * project for reference and to document the evolution of the design.</p>
+ */
 public class Play {
 
     public Play() {
@@ -41,6 +56,7 @@ public class Play {
 
         System.out.println("Thank you for playing line sleeper");
     }
+
 
     public static void main(String[] args) {
         new Play();

@@ -1,11 +1,30 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static java.lang.System.*;
 
+/**
+ * Represents the first experimental implementation of the Minesweeper board.
+ * <p>
+ * This class was created during the initial attempt at building the game logic.
+ * It stores the board size, the number of mines, and the 2D array of {@link Mine}
+ * objects that make up the playing field.
+ * </p>
+ *
+ * <p><strong>Important:</strong> This version of the field is incomplete.
+ * The full, polished, and actively used implementation is located in
+ * {@code Field2}, which contains the final game logic, mine placement rules,
+ * neighbor counting, and click handling.</p>
+ *
+ * <p>
+ * This class remains in the project for reference and documentation purposes,
+ * showing the evolution of the design before the final architecture was created.
+ * </p>
+ *
+ * @author Yoav
+ */
 public class Field {
 
     private int side;
@@ -57,40 +76,40 @@ public class Field {
         //for row = 0
         for(int col = 0; col < side; col++){
             int minesAround= 0;
-            if (col != 0 && col != side - 1 && !playField[0][col].getexplosion()){
-                if (playField[0][col-1].getexplosion()){
+            if (col != 0 && col != side - 1 && !playField[0][col].getExplosion()){
+                if (playField[0][col-1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[0][col+1].getexplosion()){
+                if (playField[0][col+1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[1][col-1].getexplosion()){
+                if (playField[1][col-1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[1][col].getexplosion()){
+                if (playField[1][col].getExplosion()){
                     minesAround++;
                 }
-                if (playField[1][col + 1].getexplosion()){
+                if (playField[1][col + 1].getExplosion()){
                     minesAround++;
                 }
-            } else if (col == 0 && !playField[0][col].getexplosion()){
-                if (playField[0][col+1].getexplosion()){
+            } else if (col == 0 && !playField[0][col].getExplosion()){
+                if (playField[0][col+1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[1][col].getexplosion()){
+                if (playField[1][col].getExplosion()){
                     minesAround++;
                 }
-                if (playField[1][col + 1].getexplosion()){
+                if (playField[1][col + 1].getExplosion()){
                     minesAround++;
                 }
-            } else if (col == side-1 && !playField[0][col].getexplosion()) {
-                if (playField[0][col-1].getexplosion()){
+            } else if (col == side-1 && !playField[0][col].getExplosion()) {
+                if (playField[0][col-1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[1][col-1].getexplosion()){
+                if (playField[1][col-1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[1][col].getexplosion()){
+                if (playField[1][col].getExplosion()){
                     minesAround++;
                 }
             }
@@ -100,40 +119,40 @@ public class Field {
         // for row = side - 1
         for (int col = 0; col < side; col++) {
             int minesAround= 0;
-            if (col != 0 && col != side - 1 && !playField[side - 1][col].getexplosion()){
-                if (playField[side - 2][col - 1].getexplosion()){
+            if (col != 0 && col != side - 1 && !playField[side - 1][col].getExplosion()){
+                if (playField[side - 2][col - 1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[side - 2][col].getexplosion()){
+                if (playField[side - 2][col].getExplosion()){
                     minesAround++;
                 }
-                if (playField[side - 2][col + 1].getexplosion()){
+                if (playField[side - 2][col + 1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[side - 1][col-1].getexplosion()){
+                if (playField[side - 1][col-1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[side - 1][col+1].getexplosion()){
+                if (playField[side - 1][col+1].getExplosion()){
                     minesAround++;
                 }
-            } else if (col == 0 && !playField[side - 1][col].getexplosion()){
-                if (playField[side - 2][col].getexplosion()){
+            } else if (col == 0 && !playField[side - 1][col].getExplosion()){
+                if (playField[side - 2][col].getExplosion()){
                     minesAround++;
                 }
-                if (playField[side - 2][col + 1].getexplosion()){
+                if (playField[side - 2][col + 1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[side - 1][col+1].getexplosion()){
+                if (playField[side - 1][col+1].getExplosion()){
                     minesAround++;
                 }
-            } else if (col == side-1 && !playField[side - 1][col].getexplosion()) {
-                if (playField[side - 2][col - 1].getexplosion()){
+            } else if (col == side-1 && !playField[side - 1][col].getExplosion()) {
+                if (playField[side - 2][col - 1].getExplosion()){
                     minesAround++;
                 }
-                if (playField[side - 2][col].getexplosion()){
+                if (playField[side - 2][col].getExplosion()){
                     minesAround++;
                 }
-                if (playField[side - 1][col-1].getexplosion()){
+                if (playField[side - 1][col-1].getExplosion()){
                     minesAround++;
                 }
             }
@@ -144,61 +163,61 @@ public class Field {
         for (int row = 1; row < side-1; row++) {
             for (int col = 0; col < side; col++) {
                 int minesAround = 0;
-                if (col != 0 && col != side - 1 && !playField[row][col].getexplosion()){
-                    if (playField[row - 1][col - 1].getexplosion()){
+                if (col != 0 && col != side - 1 && !playField[row][col].getExplosion()){
+                    if (playField[row - 1][col - 1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row - 1][col].getexplosion()){
+                    if (playField[row - 1][col].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row - 1][col + 1].getexplosion()){
+                    if (playField[row - 1][col + 1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row][col-1].getexplosion()){
+                    if (playField[row][col-1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row][col+1].getexplosion()){
+                    if (playField[row][col+1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row+1][col-1].getexplosion()){
+                    if (playField[row+1][col-1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row + 1][col].getexplosion()){
+                    if (playField[row + 1][col].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row + 1][col + 1].getexplosion()){
+                    if (playField[row + 1][col + 1].getExplosion()){
                         minesAround++;
                     }
-                } else if (col == 0 && !playField[row][col].getexplosion()){
-                    if (playField[row - 1][col].getexplosion()){
+                } else if (col == 0 && !playField[row][col].getExplosion()){
+                    if (playField[row - 1][col].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row - 1][col + 1].getexplosion()){
+                    if (playField[row - 1][col + 1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row][col+1].getexplosion()){
+                    if (playField[row][col+1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row + 1][col].getexplosion()){
+                    if (playField[row + 1][col].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row + 1][col + 1].getexplosion()){
+                    if (playField[row + 1][col + 1].getExplosion()){
                         minesAround++;
                     }
-                } else if (col == side-1 && !playField[row][col].getexplosion()) {
-                    if (playField[row - 1][col - 1].getexplosion()){
+                } else if (col == side-1 && !playField[row][col].getExplosion()) {
+                    if (playField[row - 1][col - 1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row - 1][col].getexplosion()){
+                    if (playField[row - 1][col].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row][col-1].getexplosion()){
+                    if (playField[row][col-1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row+1][col-1].getexplosion()){
+                    if (playField[row+1][col-1].getExplosion()){
                         minesAround++;
                     }
-                    if (playField[row + 1][col].getexplosion()){
+                    if (playField[row + 1][col].getExplosion()){
                         minesAround++;
                     }
                 }
@@ -260,7 +279,7 @@ public class Field {
             out.println("location is already clicked");
             return false;
         }
-        if (playField[row][col].getexplosion()) {
+        if (playField[row][col].getExplosion()) {
             out.println("you hit a mine, you LOOSE!");
             return true;
         }
@@ -285,7 +304,7 @@ public class Field {
         for (int row = 0; row < side; row++) {
             out.print(row + " |");
             for (int col = 0; col < side; col++) {
-                if (playField[row][col].getexplosion()) {
+                if (playField[row][col].getExplosion()) {
                     out.print("X ");
                 }
                 else {
@@ -294,21 +313,5 @@ public class Field {
             }
             out.println();
         }
-    }
-
-
-    public static void main(String[] args) {
-
-        Field field = new Field(10,90);
-
-        field.printField();
-
-        field.chooseMine(0, 0);
-        field.chooseMine(4, 3);
-        field.chooseMine(5, 2);
-        field.chooseMine(5, 9);
-
-        field.printField();
-        field.printMines();
     }
 }
